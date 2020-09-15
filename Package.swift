@@ -23,6 +23,7 @@ let package = Package(
         .target(
             name: "SwiftDate",
             dependencies: [],
+            exclude: ["TestApplication", "Tests"],
             resources: [
                 .process("Resources")
             ]

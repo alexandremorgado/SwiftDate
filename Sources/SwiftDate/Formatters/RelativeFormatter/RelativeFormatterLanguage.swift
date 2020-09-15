@@ -20,9 +20,10 @@ internal class RelativeFormatterLanguagesCache {
 
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
-            guard let fullURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json") else {
+            guard let fullURL = Bundle.module.url(forResource: langID, withExtension: "json") else {
                 return nil
             }
+            
             let data = try Data(contentsOf: fullURL)
             let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 
